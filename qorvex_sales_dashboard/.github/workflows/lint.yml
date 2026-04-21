@@ -1,0 +1,11 @@
+name: Lint Check
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up environment
+        uses: actions/setup-python # Or setup-python, setup-go, etc.
+      - run: npm install
+      - run: npm run lint

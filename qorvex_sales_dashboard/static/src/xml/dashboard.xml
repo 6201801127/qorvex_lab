@@ -1,0 +1,38 @@
+<t t-name="sale_dashboard_template">
+    <div class="o_dashboard">
+
+        <h2>Sales Dashboard</h2>
+
+        <!-- Filter -->
+        <div class="mb-3">
+            <input type="date" t-model="state.date_from"/>
+            <input type="date" t-model="state.date_to"/>
+            <button t-on-click="onFilterApply">Apply</button>
+        </div>
+
+        <!-- Scrollable Table -->
+        <div class="dashboard-table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Customer</th>
+                        <th>Total</th>
+                        <th>Order Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.orders" t-as="o" t-key="o.id">
+                        <tr>
+                            <td><t t-esc="o.name"/></td>
+                            <td><t t-esc="o.customer"/></td>
+                            <td><t t-esc="o.total"/></td>
+                            <td><t t-esc="o.date"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</t>
